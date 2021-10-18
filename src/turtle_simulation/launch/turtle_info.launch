@@ -1,0 +1,5 @@
+<launch>
+  <node name="turtlesim_node" pkg="turtlesim" type="turtlesim_node"/>
+  <node name="turtle_info" pkg="turtle_simulation" type="turtle_info" output="screen"/>
+  <node pkg="rosbag" type="record" name="rosbag_recorder" args=" record -a -O /home/roblab/catkin_ws/bag_files/practice0.bag"/>
+</launch>

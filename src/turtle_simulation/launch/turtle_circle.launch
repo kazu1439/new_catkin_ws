@@ -1,0 +1,8 @@
+<launch>
+  <node name="turtlesim_node" pkg="turtlesim" type="turtlesim_node"/>
+  <node name="turtle_info" pkg="turtle_simulation" type="turtle_info" output="screen"/>
+  <node name="turtle_circle" pkg="turtle_simulation" type="turtle_circle"/>
+  <node pkg="joy" type="joy_node" name="megarover_joy" respawn="true" >
+    <param name="dev" type="string" value="/dev/input/js2" />
+  </node>
+</launch>

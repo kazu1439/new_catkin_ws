@@ -1,0 +1,4 @@
+<launch>
+  <node name="joy_pc" pkg="beginner_tutorials" type="joy_pc" output="screen"/>
+  <node name="joy_mcon" pkg="beginner_tutorials" type="joy_mcon"/>
+</launch>

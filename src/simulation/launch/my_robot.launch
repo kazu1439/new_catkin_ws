@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="model" default="$(find simulation)/my_robot.xacro"/>
+  <arg name="controller_name" default="effort_controller"/>
+  <arg name="rvizconfig" default="$(find simulation)/rviz/my_robot.rviz" />
+  <param name="robot_description" command="$(find xacro)/xacro $(arg model) --inorder" />
+
+  <include file="$(find gazebo_ros)/launch/empty_world.launch"/>
+
+  <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+        args="-urdf -model my_robot -param robot_description"/>
+  <node name="sim1_odom_tf_converter" pkg="simulation" type="sim1_odom_tf_converter"/>
+
+  <rosparam command="load" file="$(find simulation)/left_right_wheel_controller.yaml" ns="/my_robot" />
+  <rosparam command="load" file="$(find simulation)/joint_state_controller.yaml" ns="/my_robot" />
+  <node name="wheel_controller_spawner" pkg="controller_manager"
+        type="spawner" respawn="false"
+        output="screen" ns="/my_robot"
+        args="left_wheel/$(arg controller_name) right_wheel/$(arg controller_name) joint_state_controller"/>
+
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" output="screen" ns="/my_robot"/>
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" required="true" />
+</launch>
