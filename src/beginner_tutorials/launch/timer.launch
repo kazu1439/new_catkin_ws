@@ -1,0 +1,4 @@
+<launch>
+  <node name="timer" pkg="beginner_tutorials" type="timer"/>
+  <node name="timer_disp" pkg="beginner_tutorials" type="timer_disp" output="screen"/>
+</launch>

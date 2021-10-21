@@ -1,0 +1,4 @@
+<launch>
+  <node name="a" pkg="beginner_tutorials" type="a"/>
+  <node name="b" pkg="beginner_tutorials" type="b" output="screen"/>
+</launch>

@@ -224,3 +224,15 @@ target_link_libraries(check_num ${catkin_LIBRARIES})
 
 add_executable(birthday src/birthday.cpp)
 target_link_libraries(birthday ${catkin_LIBRARIES})
+
+add_executable(a src/a.cpp)
+target_link_libraries(a ${catkin_LIBRARIES})
+
+add_executable(b src/b.cpp)
+target_link_libraries(b ${catkin_LIBRARIES})
+
+add_executable(timer src/timer.cpp)
+target_link_libraries(timer ${catkin_LIBRARIES})
+
+add_executable(timer_disp src/timer_disp.cpp)
+target_link_libraries(timer_disp ${catkin_LIBRARIES})
