@@ -15,9 +15,10 @@ int main(int argc, char **argv)
   ros::Publisher chatter_pub = n.advertise<std_msgs::Int32MultiArray>("time", 1000);
 
   ros::Rate loop_rate(10);
-  msg.data.resize(3);
+  
   while (ros::ok())
   {
+    msg.data.resize(3);
     msg.data[2] = s(count);
     msg.data[1] = m(count);
     msg.data[0] = h(count);
