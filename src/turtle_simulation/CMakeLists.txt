@@ -8,7 +8,7 @@ project(turtle_simulation)
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
-  #geometry_msgs
+  geometry_msgs
   message_generation
   rosconsole
   roscpp
@@ -126,13 +126,9 @@ include_directories(
 )
 
 ## Declare a C++ library
- add_library(${PROJECT_NAME}
+# add_library(${PROJECT_NAME}
 #   src/${PROJECT_NAME}/turtle_simulation.cpp
-  src/lib/differential.cpp
-  src/lib/integral.cpp
-  src/lib/lpf.cpp
-  src/lib/pid.cpp
-  )
+#  )
 
 ## Add cmake target dependencies of the library
 ## as an example, code may need to be generated before libraries
@@ -228,8 +224,11 @@ target_link_libraries(turtle_targets ${catkin_LIBRARIES})
 add_executable(turtle_circle src/turtle_circle.cpp)
 target_link_libraries(turtle_circle ${catkin_LIBRARIES})
 
-add_executable(turtle_p src/turtle_p.cpp src/lib/pid.cpp src/lib/differential.cpp src/lib/integral.cpp src/lib/lpf.cpp)
-target_link_libraries(turtle_p ${catkin_LIBRARIES})
+add_executable(kaka src/kaka.cpp)
+target_link_libraries(kaka ${catkin_LIBRARIES})
+
+#add_executable(turtle_p src/turtle_p.cpp src/lib/pid.cpp src/lib/differential.cpp src/lib/integral.cpp src/lib/lpf.cpp)
+#target_link_libraries(turtle_p ${catkin_LIBRARIES})
 
 add_executable(p src/p.cpp)
 target_link_libraries(p ${catkin_LIBRARIES})

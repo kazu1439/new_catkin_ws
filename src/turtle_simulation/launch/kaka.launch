@@ -1,0 +1,4 @@
+<launch>
+  <node name="turtlesim_node" pkg="turtlesim" type="turtlesim_node"/>
+  <node name="kaka" pkg="turtle_simulation" type="kaka" output="screen"/>
+</launch>
