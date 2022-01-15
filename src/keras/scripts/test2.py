@@ -16,7 +16,7 @@ import h5py
 with h5py.File("/home/roblab/new_catkin_ws/src/keras/scripts/my_model.h5", "r") as fp:
     print(fp.attrs.get("keras_version"))
 
-model = keras.models.load_model('/home/roblab/new_catkin_ws/src/keras/scripts/my_model.h5')
+model = keras.models.load_model('/home/roblab/new_catkin_ws/src/keras/scripts/my_model_2_3_1.h5')
 
 def callback(data):
     print(model.predict(data).argmax())
