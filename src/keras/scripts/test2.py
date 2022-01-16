@@ -9,21 +9,42 @@ from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense, Dropout, Flatten
 from tensorflow.keras.layers import Conv2D, MaxPooling2D
 from tensorflow.keras import backend as K
-# import sys
+import sys
+
+from cv_bridge import CvBridge
+from sensor_msgs.msg import Image
+from std_msgs.msg import Int32
+import cv2
 
 import h5py
 
-with h5py.File("/home/roblab/new_catkin_ws/src/keras/scripts/my_model.h5", "r") as fp:
+with h5py.File("/home/roblab/new_catkin_ws/src/keras/scripts/my_model_2_2_4.h5", "r") as fp:
     print(fp.attrs.get("keras_version"))
 
-model = keras.models.load_model('/home/roblab/new_catkin_ws/src/keras/scripts/my_model_2_3_1.h5')
+model = keras.models.load_model('/home/roblab/new_catkin_ws/src/keras/scripts/my_model_2_2_4.h5')
 
-def callback(data):
-    print(model.predict(data).argmax())
+ans = 0
+pub = rospy.Publisher('chatter', Int32, queue_size=10)
+
+def callback(msg):
+    try:
+        bridge = CvBridge()
+        cv_array = bridge.imgmsg_to_cv2(msg,"mono8")
+        # cv_array = bridge.imgmsg_to_cv2(msg,"bgr8")
+        cv_array = cv2.resize(cv_array,(28,28))
+        # rospy.loginfo(cv_array.shape)
+        cv_array = cv_array.astype('float')
+        # print(model.predict(cv_array.reshape(1,28,28,1)).argmax())
+        ans = model.predict(cv_array.reshape(1,28,28,1)).argmax()
+        pub.publish(ans)
+        print(ans)
+ 
+    except Exception, err:
+        rospy.logerr(err)
     
 def listener():
-    rospy.init_node('listener', anonymous=True)
-    rospy.Subscriber("chatter", String, callback)
+    rospy.init_node('test2', anonymous=True)
+    rospy.Subscriber("/usb_cam/image_raw",Image , callback)
     rospy.spin()
         
 if __name__ == '__main__':
@@ -60,5 +81,5 @@ if __name__ == '__main__':
 
 # print(sys.version)
 
-# model = keras.models.load_model('/home/roblab/new_catkin_ws/src/keras/scripts/my_model.h5')
+# model = keras.models.load_model('/home/roblab/new_catkin_ws/src/keras/scripts/my_model_2_2_4.h5')
 # print(model.predict(x_test[0].reshape(1,28,28,1)).argmax())

@@ -30,4 +30,7 @@
         <!-- 画像の縦横比を自動で判定して表示 ブール値 -->
         <param name="autosize" value="true"/>
     </node>
+
+    <node name="test2" pkg="keras" type="test2.py" respawn="false"></node>
+
 </launch>
