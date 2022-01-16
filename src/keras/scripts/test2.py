@@ -18,12 +18,13 @@ import cv2
 
 import h5py
 
-with h5py.File("/home/roblab/new_catkin_ws/src/keras/scripts/my_model_2_2_4.h5", "r") as fp:
+with h5py.File("/home/roblab/new_catkin_ws/src/keras/scripts/my_model_2_3_1.h5", "r") as fp:
     print(fp.attrs.get("keras_version"))
 
-model = keras.models.load_model('/home/roblab/new_catkin_ws/src/keras/scripts/my_model_2_2_4.h5')
+model = keras.models.load_model('/home/roblab/new_catkin_ws/src/keras/scripts/my_model_2_3_1.h5')
 
 ans = 0
+thresh = 80
 pub = rospy.Publisher('chatter', Int32, queue_size=10)
 
 def callback(msg):
@@ -33,6 +34,9 @@ def callback(msg):
         # cv_array = bridge.imgmsg_to_cv2(msg,"bgr8")
         cv_array = cv2.resize(cv_array,(28,28))
         # rospy.loginfo(cv_array.shape)
+        
+        im_bool = cv_array < thresh
+        cv_array = im_bool*255
         cv_array = cv_array.astype('float')
         # print(model.predict(cv_array.reshape(1,28,28,1)).argmax())
         ans = model.predict(cv_array.reshape(1,28,28,1)).argmax()
