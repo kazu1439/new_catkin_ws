@@ -224,3 +224,6 @@ target_link_libraries(check_num ${catkin_LIBRARIES})
 
 add_executable(birthday src/birthday.cpp)
 target_link_libraries(birthday ${catkin_LIBRARIES})
+
+add_executable(kansu src/kansu.cpp)
+target_link_libraries(kansu ${catkin_LIBRARIES})

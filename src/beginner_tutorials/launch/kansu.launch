@@ -1,0 +1,3 @@
+<launch>
+  <node name="kansu" pkg="beginner_tutorials" type="kansu" output="screen"/>
+</launch>
