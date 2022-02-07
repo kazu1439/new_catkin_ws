@@ -4,6 +4,7 @@ beginner_tutorials
 /home/roblab/new_catkin_ws/devel/.private/beginner_tutorials/lib/beginner_tutorials/joy_pc /home/roblab/new_catkin_ws/devel/lib/beginner_tutorials/joy_pc
 /home/roblab/new_catkin_ws/devel/.private/beginner_tutorials/lib/beginner_tutorials/birthday /home/roblab/new_catkin_ws/devel/lib/beginner_tutorials/birthday
 /home/roblab/new_catkin_ws/devel/.private/beginner_tutorials/lib/beginner_tutorials/kansu /home/roblab/new_catkin_ws/devel/lib/beginner_tutorials/kansu
+/home/roblab/new_catkin_ws/devel/.private/beginner_tutorials/lib/beginner_tutorials/jon /home/roblab/new_catkin_ws/devel/lib/beginner_tutorials/jon
 /home/roblab/new_catkin_ws/devel/.private/beginner_tutorials/lib/beginner_tutorials/check_num /home/roblab/new_catkin_ws/devel/lib/beginner_tutorials/check_num
 /home/roblab/new_catkin_ws/devel/.private/beginner_tutorials/lib/beginner_tutorials/subscriber /home/roblab/new_catkin_ws/devel/lib/beginner_tutorials/subscriber
 /home/roblab/new_catkin_ws/devel/.private/beginner_tutorials/lib/beginner_tutorials/publisher /home/roblab/new_catkin_ws/devel/lib/beginner_tutorials/publisher

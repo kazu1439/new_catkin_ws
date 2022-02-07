@@ -1,0 +1,4 @@
+<launch>
+  <node name="jon" pkg="beginner_tutorials" type="jon" output="screen"/>
+  <node name="turtlesim_node" pkg="turtlesim" type="turtlesim_node"/>
+</launch>

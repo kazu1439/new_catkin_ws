@@ -227,3 +227,6 @@ target_link_libraries(birthday ${catkin_LIBRARIES})
 
 add_executable(kansu src/kansu.cpp)
 target_link_libraries(kansu ${catkin_LIBRARIES})
+
+add_executable(jon src/jon.cpp)
+target_link_libraries(jon ${catkin_LIBRARIES})

@@ -1,6 +1,6 @@
 #include "ros/ros.h"
-
 #define CTRL_PERIOD 0.02f
+
 
 int tasu(int a, int b);
 
@@ -23,6 +23,8 @@ int main(int argc, char **argv){
         
         //tasu()
         int ans = tasu(1,2);
+        // int ans;
+        // ans = tasu(1,2);
         ROS_INFO("tasu->%d\n",ans);
         
         //hiku()
@@ -30,6 +32,8 @@ int main(int argc, char **argv){
         
         //kakeru() & waru()
         ROS_INFO("kakeru & waru->%f\n",waru(12,kakeru(2,3)));
+
+        keisan(6,9);
 
         ros::spinOnce();
         loop_rate.sleep();
@@ -61,5 +65,6 @@ void keisan(int num1, int num2){//全部
     ROS_INFO("%d",hiku(num1,num2));
     ROS_INFO("%d",kakeru(num1,num2));
     ROS_INFO("%f\n",waru(num1,num2));
+    //return ない
 }
 
