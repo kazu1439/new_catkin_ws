@@ -1,0 +1,3 @@
+<launch>
+  <node name="publisher" pkg="beginner_tutorials" type="publisher" output="screen"/>
+</launch>

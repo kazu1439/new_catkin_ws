@@ -227,8 +227,19 @@ target_link_libraries(turtle_circle ${catkin_LIBRARIES})
 add_executable(kaka src/kaka.cpp)
 target_link_libraries(kaka ${catkin_LIBRARIES})
 
-#add_executable(turtle_p src/turtle_p.cpp src/lib/pid.cpp src/lib/differential.cpp src/lib/integral.cpp src/lib/lpf.cpp)
-#target_link_libraries(turtle_p ${catkin_LIBRARIES})
+#ライブラリを使う場合
+add_executable(turtle_p src/turtle_p.cpp src/lib/pid.cpp src/lib/differential.cpp src/lib/integral.cpp src/lib/lpf.cpp)
+target_link_libraries(turtle_p ${catkin_LIBRARIES})
 
 add_executable(p src/p.cpp)
 target_link_libraries(p ${catkin_LIBRARIES})
+
+#追加したライブラリを記述
+add_library(${PROJECT_NAME}
+  src/lib/differential.cpp
+  src/lib/trapezoid_control.cpp
+  src/lib/integral.cpp
+  src/lib/dob.cpp
+  src/lib/lpf.cpp
+  src/lib/pid.cpp
+ )
