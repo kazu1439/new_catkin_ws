@@ -9,12 +9,12 @@ project(turtle_simulation)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
   geometry_msgs
-  message_generation
-  rosconsole
+  #message_generation
+  #rosconsole
   roscpp
-  roscpp_serialization
-  roslib
-  rostime
+  #roscpp_serialization
+  #roslib
+  #rostime
   std_msgs
 )
 
@@ -120,15 +120,16 @@ catkin_package(
 
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
-include_directories(
+#include_directories(
 # include
-  ${catkin_INCLUDE_DIRS}
-)
+ # ${catkin_INCLUDE_DIRS}
+#)
 
 ## Declare a C++ library
-# add_library(${PROJECT_NAME}
-#   src/${PROJECT_NAME}/turtle_simulation.cpp
-#  )
+#add_library(${PROJECT_NAME}
+  #src/${PROJECT_NAME}/turtle_simulation.cpp
+  #src/lib/lpf.cpp
+#)
 
 ## Add cmake target dependencies of the library
 ## as an example, code may need to be generated before libraries
@@ -212,6 +213,18 @@ include_directories(
 
 include_directories(include ${catkin_INCLUDE_DIRS})
 
+#ライブラリ追加に必要
+add_library(${PROJECT_NAME}
+  src/lib/pid.cpp
+  src/lib/differential.cpp
+  src/lib/integral.cpp
+  src/lib/lpf.cpp
+  src/lib/dob.cpp
+  src/lib/trapezoid_control.cpp
+)
+
+
+
 add_executable(turtle_info src/turtle_info.cpp)
 target_link_libraries(turtle_info ${catkin_LIBRARIES})
 
@@ -228,18 +241,12 @@ add_executable(kaka src/kaka.cpp)
 target_link_libraries(kaka ${catkin_LIBRARIES})
 
 #ライブラリを使う場合
+
 add_executable(turtle_p src/turtle_p.cpp src/lib/pid.cpp src/lib/differential.cpp src/lib/integral.cpp src/lib/lpf.cpp)
 target_link_libraries(turtle_p ${catkin_LIBRARIES})
 
 add_executable(p src/p.cpp)
 target_link_libraries(p ${catkin_LIBRARIES})
 
-#追加したライブラリを記述
-add_library(${PROJECT_NAME}
-  src/lib/differential.cpp
-  src/lib/trapezoid_control.cpp
-  src/lib/integral.cpp
-  src/lib/dob.cpp
-  src/lib/lpf.cpp
-  src/lib/pid.cpp
- )
+add_executable(p_sample src/p_sample.cpp)
+target_link_libraries(p_sample ${catkin_LIBRARIES})

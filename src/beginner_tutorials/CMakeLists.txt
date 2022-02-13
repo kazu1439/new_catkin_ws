@@ -115,15 +115,8 @@ catkin_package(
 
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
-include_directories(
-# include
-  ${catkin_INCLUDE_DIRS}
-)
 
 ## Declare a C++ library
-# add_library(${PROJECT_NAME}
-#   src/${PROJECT_NAME}/beginner_tutorials.cpp
-# )
 
 ## Add cmake target dependencies of the library
 ## as an example, code may need to be generated before libraries
@@ -207,6 +200,10 @@ include_directories(
 
 include_directories(include ${catkin_INCLUDE_DIRS})
 
+add_library(${PROJECT_NAME}
+  src/lib/lpf.cpp
+)
+
 add_executable(publisher src/publisher.cpp)
 target_link_libraries(publisher ${catkin_LIBRARIES})
 
@@ -222,7 +219,7 @@ target_link_libraries(joy_mcon ${catkin_LIBRARIES})
 add_executable(check_num src/check_num.cpp)
 target_link_libraries(check_num ${catkin_LIBRARIES})
 
-add_executable(birthday src/birthday.cpp)
+add_executable(birthday src/birthday.cpp src/lib/lpf.cpp)
 target_link_libraries(birthday ${catkin_LIBRARIES})
 
 add_executable(kansu src/kansu.cpp)
