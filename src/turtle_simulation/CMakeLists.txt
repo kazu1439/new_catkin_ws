@@ -213,15 +213,15 @@ catkin_package(
 
 include_directories(include ${catkin_INCLUDE_DIRS})
 
-#ライブラリ追加に必要
-add_library(${PROJECT_NAME}
-  src/lib/pid.cpp
-  src/lib/differential.cpp
-  src/lib/integral.cpp
-  src/lib/lpf.cpp
-  src/lib/dob.cpp
-  src/lib/trapezoid_control.cpp
-)
+#ライブラリ追加に必要?
+#add_library(${PROJECT_NAME}
+#  src/lib/pid.cpp
+#  src/lib/differential.cpp
+#  src/lib/integral.cpp
+#  src/lib/lpf.cpp
+#  src/lib/dob.cpp
+#  src/lib/trapezoid_control.cpp
+#)
 
 
 

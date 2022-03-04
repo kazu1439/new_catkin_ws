@@ -200,9 +200,9 @@ catkin_package(
 
 include_directories(include ${catkin_INCLUDE_DIRS})
 
-add_library(${PROJECT_NAME}
-  src/lib/lpf.cpp
-)
+#add_library(${PROJECT_NAME}
+#  src/lib/lpf.cpp
+#)
 
 add_executable(publisher src/publisher.cpp)
 target_link_libraries(publisher ${catkin_LIBRARIES})

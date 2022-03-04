@@ -1,6 +1,5 @@
 turtle_simulation
 /home/roblab/new_catkin_ws/devel/.private/turtle_simulation/cmake.lock /home/roblab/new_catkin_ws/devel/./cmake.lock
-/home/roblab/new_catkin_ws/devel/.private/turtle_simulation/lib/libturtle_simulation.so /home/roblab/new_catkin_ws/devel/lib/libturtle_simulation.so
 /home/roblab/new_catkin_ws/devel/.private/turtle_simulation/lib/pkgconfig/turtle_simulation.pc /home/roblab/new_catkin_ws/devel/lib/pkgconfig/turtle_simulation.pc
 /home/roblab/new_catkin_ws/devel/.private/turtle_simulation/lib/turtle_simulation/p_sample /home/roblab/new_catkin_ws/devel/lib/turtle_simulation/p_sample
 /home/roblab/new_catkin_ws/devel/.private/turtle_simulation/lib/turtle_simulation/turtle_ps4 /home/roblab/new_catkin_ws/devel/lib/turtle_simulation/turtle_ps4

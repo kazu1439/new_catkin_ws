@@ -26,22 +26,29 @@ model = keras.models.load_model('/home/roblab/new_catkin_ws/src/keras/scripts/my
 ans = 0
 thresh = 80
 pub = rospy.Publisher('chatter', Int32, queue_size=10)
+pub2 = rospy.Publisher('afterImage', Image, queue_size=10)
 
 def callback(msg):
     try:
         bridge = CvBridge()
         cv_array = bridge.imgmsg_to_cv2(msg,"mono8")
+        
         # cv_array = bridge.imgmsg_to_cv2(msg,"bgr8")
         cv_array = cv2.resize(cv_array,(28,28))
+        # print(cv_array.dtype)
         # rospy.loginfo(cv_array.shape)
         
         im_bool = cv_array < thresh
         cv_array = im_bool*255
+        image_message = bridge.cv2_to_imgmsg(cv_array.astype('u1'), encoding="mono8")
         cv_array = cv_array.astype('float')
+        
+        pub2.publish(image_message)
+        
         # print(model.predict(cv_array.reshape(1,28,28,1)).argmax())
         ans = model.predict(cv_array.reshape(1,28,28,1)).argmax()
         pub.publish(ans)
-        print(ans)
+        # print(ans)
  
     except Exception, err:
         rospy.logerr(err)

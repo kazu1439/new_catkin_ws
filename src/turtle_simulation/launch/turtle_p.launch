@@ -1,5 +1,5 @@
 <launch>
   <node name="turtlesim_node" pkg="turtlesim" type="turtlesim_node"/>
-  <node name="turtle_info" pkg="turtle_simulation" type="turtle_info" output="screen"/>
+  <!-- <node name="turtle_info" pkg="turtle_simulation" type="turtle_info" output="screen"/> -->
   <node name="turtle_p" pkg="turtle_simulation" type="turtle_p"/>
 </launch>
